@@ -14,13 +14,13 @@ X = iris.data[:, :2] # возьмём только первые 2 признак
 y = iris.target
 
 C = 1.0 # параметр регуляризации SVM
-svc = svm.SVC(kernel='linear', C=1,gamma=0).fit(X, y) # здесь мы взяли линейный kernel
+svc = svm.SVC(kernel='linear', C=1,gamma=0.1).fit(X, y) # здесь мы взяли линейный kernel
 
 # создаём сетку для построения графика
 x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
 y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
-xx, yy = np.meshgrid(np.arange(x_min, x_max, h),
- np.arange(y_min, y_max, h))
+xx, yy = np.meshgrid(np.arange(x_min, x_max, 0.1),
+ np.arange(y_min, y_max, 0.1))
 
 plt.subplot(1, 1, 1)
 Z = svc.predict(np.c_[xx.ravel(), yy.ravel()])
