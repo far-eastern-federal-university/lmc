@@ -22,8 +22,7 @@ X.replace("male", 0, True, None, False)
 X.replace("female", 1, True, None, False)
 
 y = data_notna["Survived"]
-clf = SVC(kernel='linear')
-clf = SVC.fit(X, y)
+
 # Забираем рабочий код у ирисов
 
 clf = LogisticRegression(random_state=123, solver='lbfgs',
