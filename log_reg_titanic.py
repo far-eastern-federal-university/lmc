@@ -9,6 +9,8 @@ import pandas as pd
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 from cross_validation_plotter import plot_cross_validation
+from sklearn.svm import SVC
+
 
 # Забираем код у предыдущих групп
 data = pd.read_csv("titanic.csv", sep = ",")
@@ -20,13 +22,16 @@ X.replace("male", 0, True, None, False)
 X.replace("female", 1, True, None, False)
 
 y = data_notna["Survived"]
-
+clf = SVC(kernel='linear')
+clf = SVC.fit(X, y)
 # Забираем рабочий код у ирисов
 
 clf = LogisticRegression(random_state=123, solver='lbfgs',
                          multi_class='multinomial',  max_iter=300)
 
 clf.fit(X, y)
+
+
 
 print("---------------------------------------")
 print("Первые два объекта из X")
