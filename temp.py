@@ -19,11 +19,31 @@ y = data_notna["Survived"]
 
 C = 1 # параметр регуляризации SVM
 # svc = svm.SVC(kernel='linear', C=1,gamma=0.1).fit(X, y) # здесь мы взяли линейный kernel
-svc = svm.SVC(kernel='linear', C=1,gamma=0.1)
+svc = svm.SVC(kernel='linear', C=1, gamma=0.1)
 svc.fit(X, y)
-print(np.mean(cross_val_score(svc,X,y)))
 
-plt.scatter(range(0, X.shape[0]), X.iloc[:, 0])
+
+print(svc.predict(X.loc[:3, :]))
+
+print("---------------------------------------")
+print("Первые два объекта из X")
+print(X.loc[:3, :])
+print("Предсказание класса для первых двух объектов из X")
+print(svc.predict(X.loc[:3, :]))
+print("---------------------------------------")
+
+
+# Забираем функцию для построения графиков (не забываем подгрузить cross_validation_plotter)
+print("---------------------------------------")
+help(plot_cross_validation) # 
+print("---------------------------------------")
+print("Вызов функции")
+plot_cross_validation(X=X, y=y, clf=svc, title="SVM")
+print("---------------------------------------")
+
+print("Тадам! Всё работает")
+
+#plt.scatter(range(0, X.shape[0]), X.iloc[:, 0])
 # создаём сетку для построения графика
 # x_min, x_max = X.iloc[:, 0].min() - 1, X.iloc[:, 0].max() + 1
 # y_min, y_max = X.iloc[:, 1].min() - 1, X.iloc[:, 1].max() + 1
