@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LogisticRegression
 from cross_validation_plotter import plot_cross_validation
 from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score
 
 data = pd.read_csv("wdbc.data", sep = ",")
 data = data.iloc[:,0:12]
