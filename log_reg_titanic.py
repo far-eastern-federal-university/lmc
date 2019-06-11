@@ -39,7 +39,7 @@ print(X.loc[:3, :])
 print("Предсказание класса для первых двух объектов из X")
 print(clf.predict(X.loc[:3, :]))
 print("---------------------------------------")
-
+print(cross_val_score(clf, X, y, cv=10))
 
 # Забираем функцию для построения графиков (не забываем подгрузить cross_validation_plotter)
 print("---------------------------------------")
@@ -49,4 +49,3 @@ print("Вызов функции")
 plot_cross_validation(X=X, y=y, clf=clf, title="Logistic Regression")
 print("---------------------------------------")
 
-print("Тадам! Всё работает")
