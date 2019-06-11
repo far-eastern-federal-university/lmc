@@ -35,7 +35,7 @@ print(clf.predict(X[:20, :]))
 print("---------------------------------------")
 
 print()
-print(cross_val_score(svc, X, y, cv=10))
+print(cross_val_score(clf, X, y, cv=10))
 
 print("---------------------------------------")
 help(plot_cross_validation) 
