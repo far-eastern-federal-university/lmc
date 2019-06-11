@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LogisticRegression
 from cross_validation_plotter import plot_cross_validation
 from sklearn.model_selection import train_test_split
-plt.style.use('ggplot')
 
 #Load the dataset
 df = pd.read_csv("diabetes.csv")
