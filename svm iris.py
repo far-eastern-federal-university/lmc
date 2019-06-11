@@ -30,4 +30,3 @@ print("Вызов функции")
 plot_cross_validation(X=X, y=y, clf=svc, title="SVM")
 print("---------------------------------------")
 
-print("Тадам! Всё работает")
