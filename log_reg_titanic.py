@@ -10,6 +10,7 @@ import numpy as np
 from sklearn.linear_model import LogisticRegression
 from cross_validation_plotter import plot_cross_validation
 from sklearn.svm import SVC
+from sklearn.model_selection import cross_val_score
 
 
 # Забираем код у предыдущих групп
