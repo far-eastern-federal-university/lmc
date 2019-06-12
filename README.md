@@ -1,10 +1,10 @@
-log_reg titanic
-log_reg iris
-log_reg digits
-log_reg diabetes
-log_reg rak
-svm titanic
-svm iris
-svm digits
-svm diabetes
-svm rak
+log_reg titanic  0.72222222;
+log_reg iris  1;
+log_reg digits  0.93181818;
+log_reg diabetes  0.82894737;
+log_reg rak  0.91071429;
+svm titanic  0.91071429;
+svm iris  0.86666667;
+svm digits  0.96590909;
+svm diabetes  0.81578947;
+svm rak  0.91071429;
