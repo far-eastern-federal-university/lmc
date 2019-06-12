@@ -1,1 +1,10 @@
-lmc
+log_reg titanic
+log_reg iris
+log_reg digits
+log_reg diabetes
+log_reg rak
+svm titanic
+svm iris
+svm digits
+svm diabetes
+svm rak
