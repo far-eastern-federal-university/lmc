@@ -23,7 +23,7 @@ print("Where is malignant cancer?")
 n = 1
 print(clf.predict(X[14:23]))
 print((X[14:23]))
-print(cross_val_score(svc, X, y, cv=10))
+print(cross_val_score(clf, X, y, cv=10))
 
 # Забираем функцию для построения графиков (не забываем подгрузить cross_validation_plotter)
 print("---------------------------------------")
