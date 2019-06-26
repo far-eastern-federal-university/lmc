@@ -1,6 +1,3 @@
-lmc
-# Отчет по выполненным заданиям.
-
 Выполнили студенты группы Б8320:
 Луценко А.Н.
 Терещенко К.Г.
@@ -32,7 +29,7 @@ from sklearn.linear_model import LogisticRegression
 from cross_validation_plotter import plot_cross_validation
 from sklearn.model_selection import cross_val_score
 
-# Блок загрузки данных
+# Забираем код у предыдущих групп
 data = pd.read_csv("titanic.csv", sep = ",")
 
 data_notna = pd.DataFrame.dropna(data)
@@ -42,7 +39,8 @@ X.replace("male", 0, True, None, False)
 X.replace("female", 1, True, None, False)
 
 y = data_notna["Survived"]
-#
+
+# Забираем рабочий код у ирисов
 
 clf = LogisticRegression(random_state=123, solver='lbfgs',
                          multi_class='multinomial',  max_iter=300)
@@ -57,12 +55,13 @@ print(clf.predict(X.loc[:3, :]))
 print("---------------------------------------")
 print(cross_val_score(clf, X, y, cv=10))
 
-# функция для построения графиков 
+# Забираем функцию для построения графиков (не забываем подгрузить cross_validation_plotter)
 print("---------------------------------------")
 help(plot_cross_validation) # 
 print("---------------------------------------")
 print("Вызов функции")
-plot_cross_validation(X=X, y=y, clf=clf, title="Logistic Regression")
+param= plot_cross_validation(X=X, y=y, clf=clf, title="Logistic Regression")
+print(param)
 print("---------------------------------------")
 ```
 Изначально, нужно подключить необходимые библиотеки и функции, которые будут задействованны в написании программы log_reg_titanic.py. Pandas нам потребуется для импорта данных по пассажирам Титаника из .csv файла. Из бибилиотеки sklearn модуль LogisticRegression, который является ключевым для рассчета данных. Далее, мы подключаем написанную функцию cross_validation_plotter, которая необходима для построения графиков. cross_val_score используется для оценки модели прогнозирования. 
@@ -81,7 +80,6 @@ from cross_validation_plotter import plot_cross_validation
 from sklearn import svm, datasets
 from sklearn.model_selection import cross_val_score
 
-
 # импортируем набор данных (iris)
 iris = datasets.load_iris()
 X = iris.data[:, :2] # возьмём только первые 2 признака, чтобы проще воспринять вывод
@@ -91,26 +89,42 @@ C = 1.0 # параметр регуляризации SVM
 svc = svm.SVC(kernel='linear', C=1, gamma=0.1)
 svc.fit(X, y)
 
-
 print("---------------------------------------")
 print("Предсказание класса для первых двух объектов из X")
 print(svc.predict(X[:2, :]))
 print("---------------------------------------")
 print(cross_val_score(svc, X, y, cv=10))
 
-# Забираем функцию для построения графиков
+# Забираем функцию для построения графиков (не забываем подгрузить cross_validation_plotter)
 print("---------------------------------------")
 help(plot_cross_validation) # 
 print("---------------------------------------")
 print("Вызов функции")
-plot_cross_validation(X=X, y=y, clf=svc, title="SVM")
+param= plot_cross_validation(X=X, y=y, clf=svc, title="SVM")
 print("---------------------------------------")
-
+print(param)
+print("---------------------------------------")
 ```
 
 Сперва, как и в прошлом примере, подключаем необходимые библиотеки. В отличии от программ, где мы используем данные по Титанику и диабетикам, данные для программы мы подключаем через метод datasets, который находится в библиотеке sklearn. svm используется для работы с методом опорных векторов. 
 Далее, как и в примере с логистической регрессией у нас идет блок вызова метода опорных векторов и блок вывода результата работы программы.
-
+### Переменная param
+Для вывода времени работы каждого из кодов потребовалось создать переменную param, которая работает с функцией cross_validation_plotter. Для начала пройдемся по видоизменениям в данной функции.
+Сначала объявляем две переменные a и b и обнуляем их.
+```sh
+a = 0
+b = 0
+```
+Далее присваиваем значения данным переменным по тестовым данным и обучающей выборки, чтобы программа могла подсчитать процент ошибок для каждого из кодов.
+```sh
+a = test_scores_mean[-1]
+b = train_scores_mean[-1]
+```
+Пример объявления переменной param в коде программы. Тут переменной присваивается метод из функции cross_validation_plotter, что позволяет получить требуемое значение при запуске каждой программы.
+```sh
+param= plot_cross_validation(X=X, y=y, clf=svc, title="SVM")
+print(param)
+```
 # Время работы каждого из кодов
 |     Программа    | Процент ошибок для тестовых данных | Процент ошибок для обучающей выборки |
 |:----------------:|:----------------------------------:|:------------------------------------:|
