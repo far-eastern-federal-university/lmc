@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun May 12 17:09:28 2019
-
-@author: Dmitry
-"""
-
 from cross_validation_plotter import plot_cross_validation
 from sklearn.datasets import load_iris
 from sklearn.linear_model import LogisticRegression
@@ -36,5 +29,6 @@ print("---------------------------------------")
 help(plot_cross_validation) # 
 print("---------------------------------------")
 print("Вызов функции")
-plot_cross_validation(X=X, y=y, clf=clf, title="Logistic Regression")
+param= plot_cross_validation(X=X, y=y, clf=clf, title="Logistic Regression")
 print("---------------------------------------")
+print(param)

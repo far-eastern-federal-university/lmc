@@ -6,10 +6,8 @@ Created on Mon May 20 21:07:24 2019
 """
 
 import pandas as pd
-import numpy as np
 from sklearn.linear_model import LogisticRegression
 from cross_validation_plotter import plot_cross_validation
-from sklearn.svm import SVC
 from sklearn.model_selection import cross_val_score
 
 
@@ -46,6 +44,7 @@ print("---------------------------------------")
 help(plot_cross_validation) # 
 print("---------------------------------------")
 print("Вызов функции")
-plot_cross_validation(X=X, y=y, clf=clf, title="Logistic Regression")
+param= plot_cross_validation(X=X, y=y, clf=clf, title="Logistic Regression")
+print(param)
 print("---------------------------------------")
 

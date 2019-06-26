@@ -16,6 +16,8 @@ def plot_cross_validation(X, y, clf, title=None):
         и вектору ответов y.
         Возвращает объект-график, относящийся к библиотеке matplotlib.pyplot
     """
+    a = 0
+    b = 0
     plt.figure()
     plt.title(title)
     plt.xlabel("Training examples")
@@ -41,3 +43,6 @@ def plot_cross_validation(X, y, clf, title=None):
              label="Cross-validation score")
     plt.legend(loc="best")
     plt.show()
+    a = test_scores_mean[-1]
+    b = train_scores_mean[-1]
+    return [a, b]

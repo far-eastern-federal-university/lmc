@@ -1,8 +1,4 @@
-import numpy as np
-from sklearn.linear_model import LogisticRegression
 from cross_validation_plotter import plot_cross_validation
-from sklearn.svm import SVC
-import matplotlib.pyplot as plt
 from sklearn import svm, datasets
 from sklearn.model_selection import cross_val_score
 
@@ -28,6 +24,7 @@ print("---------------------------------------")
 help(plot_cross_validation) # 
 print("---------------------------------------")
 print("Вызов функции")
-plot_cross_validation(X=X, y=y, clf=svc, title="SVM")
+param= plot_cross_validation(X=X, y=y, clf=svc, title="SVM")
 print("---------------------------------------")
-
+print(param)
+print("---------------------------------------")
